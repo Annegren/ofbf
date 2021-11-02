@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Category #{% endblock %}
+
+{% block body %}  
+<div class="text-center m-5">
+    <h1>{{ article.title }}</h1>
+    <h2> Caté {{ category.name }} </h2>
+    <p> Sous Caté {{ subCategory.name }}  </p>
+
+</div>     
+{% endblock %} 

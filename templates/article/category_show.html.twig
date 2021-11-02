@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+{% block title %}caté # {% endblock %}
+
+{% block body %}  
+<div class="text-center m-3">
+  <h2>caté {{ category.name }}</h2>
+  <h2>Liste des sous catégories</h2>
+
+</div>     
+    <ul class="list-group text-center">
+    {% for subcategory in subcategories %}
+        <a href="{{ path("article_subCategory_show", { article_id: article.id, category_id: category.id, subCategory_id: subCategory.id }) }}"><li class="list-group-item m-3">Caté {{ category.name }} : {{ subCategory.name }}</li></a>
+    {% else %}
+      <li class="list-group-item ">Aucun caté trouvé.</li>
+    {% endfor %}
+    <a href="{{ path("article_show", { id: article.id }) }}">
+      Retour à la fiche de l'article
+    </a>
+    </ul>
+{% endblock %} 

@@ -1,7 +1,31 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Article #{{ article.id }}
+{% endblock %}
+
 {% block body %}
+<section class="container p-5 col-5">
+<div class="card shadow p-3 mb-5 bg-white rounded"style="width: 30rem;">
+  <img src="{{article.poster}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{  article.title }}</h5>
+			<p>{{ article.description }}</p>
+			<p>Catégorie :
+				<a href>{{ article.category.name }}</a></p>
 
-<h1>Article {{ id }}.</h1>
+            {% if (article.category.name == 'OFB') %}
+           <p> sous-catégorie:
+			<a href>{{ article.subCategory.name }}</a></p>
+           {% elseif (article.category.name== 'Parcs nationaux') %}
+           <p> sous-catégorie :
+			<a href>{{ article.subCategory.name }}</a></p>
+			{% endif %}
 
+			
+	</div>
+	</div>
+	</section>
+
+	<a href="{{ path('article_index') }}">
+		Retour à la liste des programmes</a>
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les sous-catégories{% endblock %}
+
+{% block body %}
+    <h1 class="text-center p-5" > Toutes les sous Catégories  : </h1>
+    {% for subCategory in subCategories %}
+        <div>
+            <a href="{{ path("subcategory_show", { subCategoryName: subCategory.name }) }}"><h2> {{ subCategory.name }} </h2></a>
+        </div>
+    {% else %}
+        Aucune Catégorie trouvée.
+    {% endfor %}
+
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}

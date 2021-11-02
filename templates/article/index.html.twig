@@ -1,20 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArticleController!{% endblock %}
+{% block title %}Tous les articles
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<h1 class="text-center p-5" > Tous les articles :</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	{% for article in articles | reverse %} 
+		<div>
+			<section class="container p-5 col-5" >
+				<div class="card shadow p-3 mb-5 bg-white rounded"  style="width: 30rem;">
+					<img src="{{ vich_uploader_asset(article,'imageFile')}}"  class="card-img-top" alt="...">
+					<div class="card-body">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/annegreen/Desktop/ofbf/ofbf/src/Controller/ArticleController.php'|file_link(0) }}">src/Controller/ArticleController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/annegreen/Desktop/ofbf/ofbf/templates/article/index.html.twig'|file_link(0) }}">templates/article/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
+						<h3>
+							{{ article.title }}
+						</h3>
+						<h5>
+							</br> - Catégorie :
+							{{ article.category.name }}
+							
+							{% if (article.category.name == 'OFB') %}
+								</h5>
+								<h5>
+									- sous-catégorie:
+									<a href>{{ article.subCategory.name }}</a>
+								</h5>
+							{% elseif (article.category.name== 'Parcs nationaux') %}
+								<p>
+									sous-catégorie :
+									<a href>{{ article.subCategory.name }}</a>
+								</p>
+							{% endif %}
+						</br>
+						<p class="card-text">{{ article.description }} </br> {{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</p>
+                    </div>
+						<a href="{{ path("article_show", { id: article.id }) }}">En savoir plus</a>
+					</div>
+				</section>
+
+			{% else %}
+				Aucune article trouvé.
+			{% endfor %}
+
+
+			<a href="{{ path('app_index') }}">
+				Retour à l'accueil
+			</a>
+		{% endblock %}
