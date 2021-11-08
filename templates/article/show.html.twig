@@ -13,10 +13,10 @@
 			<p>Catégorie :
 				<a href>{{ article.category.name }}</a></p>
 
-            {% if (article.category.name == 'OFB') %}
+            {% if (article.category.name == 'Ofb') %}
            <p> sous-catégorie:
 			<a href>{{ article.subCategory.name }}</a></p>
-           {% elseif (article.category.name== 'Parcs nationaux') %}
+           {% elseif (article.category.name== 'Parcs Nationaux') %}
            <p> sous-catégorie :
 			<a href>{{ article.subCategory.name }}</a></p>
 			{% endif %}
@@ -26,6 +26,8 @@
 	</div>
 	</section>
 
-	<a href="{{ path('article_index') }}">
-		Retour à la liste des programmes</a>
+	<div class="p-5 text-end">
+	<button type="button" class="btn btn-light"><a href="{{ path('article_index') }}"> Retour à la liste des programmes</a></button>
+	</div>
+	
 {% endblock %}

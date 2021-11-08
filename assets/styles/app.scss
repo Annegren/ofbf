@@ -6,10 +6,11 @@ body {
 
 a {
     text-decoration: none ;
+    color: green; 
     
 }
 
-    h2, h3, h4, h5 {
+    h3, h4, h5 {
     font-family: Arial,Helvetica,sans-serif;
     color: rgba(100, 79, 52, 0.514);
     line-height: 1.25;
@@ -18,7 +19,7 @@ a {
     text-decoration: none
 }
 
-h1 {
+h6 {
     font-family: Arial,Helvetica,sans-serif;
     color: #BCAAA4 ;
     line-height: 1.25;
@@ -28,7 +29,7 @@ h1 {
 }
 
 p{
-    color:rgba(100, 79, 52, 0.514);
+    color:#F5F5F5;
     font-weight: 700;
 
 
@@ -38,5 +39,26 @@ p{
 .nav-link{
     text-decoration: none
     }
+
+    html,body {
+        font-family: 'Raleway', sans-serif;
+        padding: 1em 2em;
+        font-size: 18px;
+        background: #000066;
+        color: #F5F5F5
+      }
+      
+      h1,h2 {
+        font-weight: 200;
+        margin: 0.4em 0;
+      }
+      h1 { font-size: 3.5em; }
+      h2 {
+        color: #888;
+        font-size: 2em;
+      }
+
+    
+      
 
 

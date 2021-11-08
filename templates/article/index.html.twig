@@ -4,47 +4,64 @@
 {% endblock %}
 
 {% block body %}
-	<h1 class="text-center p-5" > Tous les articles :</h1>
+	<div class="container">
+		<section>
+			<div class="mt-5 text-center">
+				<h5>Tous les articles :</h5>
+			</div>
+			</br>
+			<div class="row d-flex justify-content-end m-auto">
+			{{ form_start(form) }}
+				{{ form_widget(form) }}
+				<button type="submit" class="my-3 p-1 btn btn-outline-dark text-center">chercher
+				<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  				<span class="visually-hidden">Loading...</span>
+				</button>
+			{{ form_end(form) }}
+			
+		</div>
+		</section>
+		<section id="new" class="p-4">
+			<div class="row mt-2">
+				{% for article in articles | reverse %}
+					<div class="card-group mb-3 col-4">
+						<div class="card col m-3" style="width: 18rem;">
+							<img src="{{ vich_uploader_asset(article,'imageFile')}}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<div class="text-center">
 
-	{% for article in articles | reverse %} 
-		<div>
-			<section class="container p-5 col-5" >
-				<div class="card shadow p-3 mb-5 bg-white rounded"  style="width: 30rem;">
-					<img src="{{ vich_uploader_asset(article,'imageFile')}}"  class="card-img-top" alt="...">
-					<div class="card-body">
-
-						<h3>
-							{{ article.title }}
-						</h3>
-						<h5>
-							</br> - Catégorie :
-							{{ article.category.name }}
-							
-							{% if (article.category.name == 'OFB') %}
-								</h5>
-								<h5>
-									- sous-catégorie:
-									<a href>{{ article.subCategory.name }}</a>
-								</h5>
-							{% elseif (article.category.name== 'Parcs nationaux') %}
-								<p>
-									sous-catégorie :
-									<a href>{{ article.subCategory.name }}</a>
-								</p>
-							{% endif %}
-						</br>
-						<p class="card-text">{{ article.description }} </br> {{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</p>
-                    </div>
-						<a href="{{ path("article_show", { id: article.id }) }}">En savoir plus</a>
+														<h3 class="card-title"> {{ article.title }}</h3>
+														<h5>
+														- Catégorie :
+														{{ article.category.name }}
+														{% if (article.category.name == 'Ofb') %}
+														</h5>
+														<h5>
+															- sous-catégorie:
+															<a href>{{ article.subCategory.name }}</a>
+														</h5>
+													{% elseif (article.category.name== 'Parcs Nationaux') %}
+														<p>
+															sous-catégorie :
+															<a href>{{ article.subCategory.name }}</a>
+														</p>
+													{% endif %}
+												
+											</br>
+											{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</p>
+									<a href="{{ path("article_show", { id: article.id }) }}" >En savoir plus</a>
+								</div>
+		  					</div>
+						</div>
 					</div>
-				</section>
+						{% else %}
+							Aucune article trouvé.
+				{% endfor %}
+			</div>
+		</section>
+	</div>
 
-			{% else %}
-				Aucune article trouvé.
-			{% endfor %}
-
-
-			<a href="{{ path('app_index') }}">
-				Retour à l'accueil
-			</a>
-		{% endblock %}
+	<div class="p-5 text-end">
+	<button type="button" class="my-3 p-1 btn btn-outline-dark text-reset"><a href="#" class="link-dark" > ↑ </a></button>
+	</div>
+{% endblock %}

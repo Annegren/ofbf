@@ -15,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
 
@@ -30,23 +31,30 @@ class ArticleCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-            AssociationField::new('category'),
-            AssociationField::new('subCategory'),
-            AssociationField::new('parcsNationaux'),
-            DateTimeField::new('createdAt'),
-            DateTimeField::new('updatedAt'),
-            TextField::new('imageFile')->setFormType(VichFileType::class)->onlyWhenCreating(),
-            ImageField::new('file')->setBasePath('uploads/pdf/')->onlyOnIndex(),
-            SlugField::new('slug')->setTargetFieldName('title')->hideOnIndex(),
+            TextField::new('title', 'Titre Article'),
+            TextEditorField::new('description')->setFormType(CKEditorType::class)->setLabel('Article description'),
+            AssociationField::new('category', 'Catégorie'),
+            AssociationField::new('subCategory', 'Sous catégorie'),
+            AssociationField::new('parcsNationaux', 'resélectionner la sous catégorie Parcs Nationaux'),
+            AssociationField::new('ofb', 'resélectionner la sous catégorie OFB'),
+            DateTimeField::new('createdAt', 'créé le'),
+            DateTimeField::new('updatedAt', 'modifié le'),
+            TextField::new('imageFile', 'Fichier PDF')->setFormType(VichFileType::class)->onlyWhenCreating(),
+            ImageField::new('file', 'Fichier PDF')->setBasePath('uploads/pdf/')->onlyOnIndex(),
+            SlugField::new('slug')->setTargetFieldName('title')->hideOnform(),
+
         ];
     }
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud
-            ->setDefaultSort(['createdAt' => 'DESC']);
+        return $crud->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
+
     }
+
+    function show($text)
+{
+    return htmlspecialchars ($text);
+}
     
 }

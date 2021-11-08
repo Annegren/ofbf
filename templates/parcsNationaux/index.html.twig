@@ -3,10 +3,10 @@
 {% block title %}Les sous-catégories{% endblock %}
 
 {% block body %}
-    <h1 class="text-center p-5" > Toutes les sous Catégories de ofb: </h1>
-    {% for ofb in ofbs %}
+    <h1 class="text-center p-5" > Toutes les sous Catégories de Parcs Nationaux: </h1>
+    {% for parcsNationaux in parcsNationauxs %}
         <div>
-            <a href="{{ path("ofb_show", { ofbName: ofb.name }) }}"><h2> {{ ofb.name }} </h2></a>
+            <a href="{{ path("parcsnationaux_show", { parcsNationauxName: parcsNationaux.name }) }}"><h2> {{ parcsNationaux.name }} </h2></a>
         </div>
     {% else %}
         Aucune Catégorie trouvée.

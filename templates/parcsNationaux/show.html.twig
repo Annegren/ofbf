@@ -5,8 +5,8 @@
 {% block body %}
 
 	{% if articles %}
-		<h5 class="mb-5">Les derniers articles de la sous catégorie :
-			{{ articles.0.ofb.name }}
+		<h5 class="mb-5">Les derniers articles de la sous catégorie Parcs :
+			{{ articles.0.parcsnationaux.name }}
 		</h5>
 		{% for article in articles %}
 			<section class="container p-5 col-5">
@@ -18,7 +18,7 @@
 						<p>{{ article.description }}</p>
 						<p>
 							sous catégorie :
-							{{ article.ofb.name }}</p>
+							{{ article.parcsNationaux.name }}</p>
                             <p>
 							 catégorie :
 							{{ article.category.name }}</p>

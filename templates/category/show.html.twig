@@ -3,30 +3,43 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-
-
+	<div class="container">
 {% if articles %}
-    <h1 class="text-center p-5" >Les derniers articles concernant les :
-      {{ articles.0.category.name }}
-    </h1>
-    
-    {% for article in articles %}
-    <section class="container p-5 col-5">
-<div class="card shadow p-3 mb-5 bg-white rounded"style="width: 30rem;">
-   <h2>
-        <a href="{{path("article_show", { id: article.id }) }}">{{ article.title }}</a>
-      </h2>
-      <p>{{ article.description }}</p>
-      </div>
-</section>
-    {% else %}
-    aucun article trouvé
-    {% endfor %}
+			<div class="mt-5 text-center">
+          <h1>Les derniers articles concernant les :
+            {{ articles.0.category.name }}
+          </h1>
+    	</div>
+    <section id="new" class="p-4">
+			  <div class="row mt-2">
+            {% for article in articles %}
+            <div class="card-group mb-3 col-4">
+						  <div class="card col m-3" style="width: 18rem;">
+						    <img src="{{ vich_uploader_asset(article,'imageFile')}}" class="card-img-top" alt="...">
+							    <div class="card-body">
+								    <div class="text-center">
+                        <h1>
+                          <a href="{{path("article_show", { id: article.id }) }}">{{ article.title }}</a>
+                        </h1>
+                        <p>{{ article.description }}</p>
+                     </div>
+                  </div>
+               </div>
+             </div>
+        {% else %}
+          aucun article trouvé
+           {% endfor %}
+         </div>
 {% endif %}
+    </section>
 
 
-    <a href="{{ path('category_index') }}">
+
+  <div class="p-5 text-end">
+      <button type="button" class="btn btn-light"> <a href="{{ path('category_index') }}">
       Retour à la liste des catégories
     </a>
+      </button>
+	</div>
 
 {% endblock %}
