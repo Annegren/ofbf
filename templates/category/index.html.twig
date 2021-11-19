@@ -3,21 +3,37 @@
 {% block title %}All categories{% endblock %}
 
 {% block body %}
-    <h4>Toutes les Catégories de la table category : </h4>
-    </br>
+<h1 class="ml6">
+  <span class="text-wrapper">
+    <span class="letters">Les catégories</span>
+  </span>
+</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+
+
+
     {% for category in categories %}
-        <div>
-            <a href="{{ path("category_show", { categoryName: category.name }) }}"><h5>Catégorie : {{ category.name }} </h5></a>
-        </div>
+
+<div class="container">
+<div class="card border-light mb-3" style="max-width: 18rem;">
+  <h3 class="card-header"> Catégorie :</h3>
+  <div class="card-body">
+    <h3 class="card-title"><a href="{{ path("category_show", { categoryName: category.name }) }}"><h6> {{ category.name }} </h6></a></h3>
+  </div>
+</div>
+</div>
     {% else %}
         Aucune Catégorie trouvée.
     {% endfor %}
 
-    
 
-    <div class="p-5 text-end">
+
+<div class="p-5 text-end">
 	<button type="button" class="btn btn-light"><a href="{{ path('app_index') }}">
         Retour à l'accueil</a>
     </button>
-	</div>
+</div>
+
 {% endblock %}

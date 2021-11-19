@@ -1,36 +1,53 @@
 {# templates/article/show.html.twig #}
 {% extends 'base.html.twig' %}
-{% block title %}{% endblock %}
+{% block title %} Articles pnx {% endblock %}
 
 {% block body %}
 
 	{% if articles %}
-		<h5 class="mb-5">Les derniers articles de la sous catégorie :
+		
+		<div id="ofbIMG"></br>
+		<h1 class="text-end p-5">
+			<h1 class="mt-5 text-center" style="color:#fefee2">
+				
 			{{ articles.0.ofb.name }}
-		</h5>
-		{% for article in articles %}
-			<section class="container p-5 col-5">
-				<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
-					<div class="card-body">
-						<h2>
-							<a href="{{path("article_show", { id: article.id }) }}">{{ article.title }}</a>
-						</h2>
-						<p>{{ article.description }}</p>
-						<p>
-							sous catégorie :
-							{{ article.ofb.name }}</p>
-                            <p>
-							 catégorie :
-							{{ article.category.name }}</p>
-					</div>
-				</div>
-		</section>
+			</h1>
+		</div>
 
-			{% else %}
-				aucun article trouvé
-			{% endfor %}
-	{% endif %}
-	<a href="{{ path('category_index') }}">
-		Retour à la liste des catégories
-	</a>
+		<section id="new" class="p-4">
+			<div class="row mt-2">
+				{% for article in articles | reverse %}
+					<div class="card-group mb-3 col-4">
+						<div class="card shadow p-3 col m-3" style="width: 18rem;">
+						<img src="{{ vich_uploader_asset(article,'imageFile')}}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<div class="text-center">
+									<h3 class="card-title">
+										{{ article.title }}</h3>
+									
+										- sous catégorie :
+										{{ article.ofb.name }}</p>
+									<p>
+										- catégorie :
+										{{ article.category.name }}</p>
+									
+									<div class="card-footer">
+									<a href="{{path("article_show", { id: article.id }) }}">
+										En savoir plus
+									</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% else %}
+					aucun article trouvé
+				{% endfor %}
+			{% endif %}
+		</div>
+	</section>
+<div class="p-5 text-end">
+	<button type="button" class="my-3 p-1 btn btn-outline-dark text-reset"><a href="#" class="link-dark" > ↑ </a></button>
+</div>
+
 {% endblock %}

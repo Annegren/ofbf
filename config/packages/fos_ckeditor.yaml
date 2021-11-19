@@ -18,3 +18,5 @@ fos_ck_editor:
         - { name: 'editing', items: [ 'Find', 'Replace', '-', 'Scayt' ] }
         - { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] }
         - { name: 'document', items: [ '-', 'Save', 'ExportPdf', 'Preview', '-', 'Source' ] }
+      filebrowserBrowseRoute: elfinder
+      filebrowserBrowseRouteParameters: []

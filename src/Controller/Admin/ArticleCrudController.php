@@ -39,8 +39,8 @@ class ArticleCrudController extends AbstractCrudController
             AssociationField::new('ofb', 'resélectionner la sous catégorie OFB'),
             DateTimeField::new('createdAt', 'créé le'),
             DateTimeField::new('updatedAt', 'modifié le'),
-            TextField::new('imageFile', 'Fichier PDF')->setFormType(VichFileType::class)->onlyWhenCreating(),
-            ImageField::new('file', 'Fichier PDF')->setBasePath('uploads/pdf/')->onlyOnIndex(),
+            TextField::new('imageFile', 'Fichier PDF')->setFormType(VichFileType::class),
+            ImageField::new('file', 'image')->setBasePath('uploads/pdf/')->onlyOnIndex(),
             SlugField::new('slug')->setTargetFieldName('title')->hideOnform(),
 
         ];

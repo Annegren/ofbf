@@ -1,45 +1,73 @@
 {# templates/article/show.html.twig #}
 {% extends 'base.html.twig' %}
-{% block title %}{% endblock %}
+{% block title %}
+	Articles pnx
+{% endblock %}
 
 {% block body %}
-	<div class="container">
-{% if articles %}
-			<div class="mt-5 text-center">
-          <h1>Les derniers articles concernant les :
-            {{ articles.0.category.name }}
-          </h1>
-    	</div>
-    <section id="new" class="p-4">
-			  <div class="row mt-2">
-            {% for article in articles %}
-            <div class="card-group mb-3 col-4">
-						  <div class="card col m-3" style="width: 18rem;">
-						    <img src="{{ vich_uploader_asset(article,'imageFile')}}" class="card-img-top" alt="...">
-							    <div class="card-body">
-								    <div class="text-center">
-                        <h1>
-                          <a href="{{path("article_show", { id: article.id }) }}">{{ article.title }}</a>
-                        </h1>
-                        <p>{{ article.description }}</p>
-                     </div>
-                  </div>
-               </div>
-             </div>
-        {% else %}
-          aucun article trouvé
-           {% endfor %}
-         </div>
-{% endif %}
-    </section>
 
 
+	{% if articles %}
 
-  <div class="p-5 text-end">
-      <button type="button" class="btn btn-light"> <a href="{{ path('category_index') }}">
-      Retour à la liste des catégories
-    </a>
-      </button>
+		<div id="statusIMG"></br>
+		<h1 class="text-end p-5">
+			<h1 class="mt-5 text-center"  style="color:#fefee2">
+				LES :
+				{{ articles.0.category.name }}
+			</h1>
+		</div>
+				{% if (categories == 'ATE TE') %}
+					<div class="text-end">
+					<a class="btn btn-outline-primary" href="mailto:gsnape-fo@ofb.gouv.fr" role="button"> <img src="https://img.icons8.com/fluency/48/000000/apple-mail.png"/></a>
+					</div>
+				
+				{% endif %}
+				{% if (categories == 'ITPE') %}
+				<div class="text-end">
+					<a class="btn btn-outline-primary" href="mailto:snitpect-fo@ofb.gouv.fr " role="button"> <img src="https://img.icons8.com/fluency/48/000000/apple-mail.png"/></a>
+				</div>
+				
+				{% elseif (categories != 'ATE TE') %}
+				<div class="text-end">
+					<a class="btn btn-outline-primary" href="mailto:o@ofb.gouv.fr "role="button"> <img src="https://img.icons8.com/fluency/48/000000/apple-mail.png"/></a>
+				</div>
+				</div>
+				{% endif %}
+
+		<section id="new" class="p-4">
+			<div class="row mt-2">
+				{% for article in articles | reverse %}
+					<div class="card-group mb-3 col-4">
+						<div class="card shadow p-3 col m-3" style="width: 18rem;">
+							<img src="{{ vich_uploader_asset(article,'imageFile')}}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<div class="text-center">
+									<h3 class="card-title">
+										{{ article.title }}</h3>
+									<p>
+										- catégorie :
+										{{ article.category.name }}
+									</p>
+								</br>
+								<div class="card-footer">
+									<a href="{{path("article_show", { id: article.id }) }}">
+										En savoir plus
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% else %}
+				aucun article trouvé
+			{% endfor %}
+		{% endif %}
 	</div>
-
-{% endblock %}
+</section>
+<div class="p-5 text-end">
+	<button type="button" class="my-3 p-1 btn btn-outline-dark text-reset">
+		<a href="#" class="link-dark">
+			↑
+		</a>
+	</button>
+</div>{% endblock %}

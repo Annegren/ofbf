@@ -6,62 +6,69 @@
 {% block body %}
 	<div class="container">
 		<section>
-			<div class="mt-5 text-center">
-				<h5>Tous les articles :</h5>
-			</div>
-			</br>
-			<div class="row d-flex justify-content-end m-auto">
+			<div class="mt-5 text-center"></div>
+		</br>
+		<div class=" row d-flex justify-content-end m-auto">
 			{{ form_start(form) }}
-				{{ form_widget(form) }}
-				<button type="submit" class="my-3 p-1 btn btn-outline-dark text-center">chercher
+			{{ form_widget(form) }}
+			<button type="submit" class="my-3 p-1 btn btn-outline-dark text-center">chercher
 				<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-  				<span class="visually-hidden">Loading...</span>
-				</button>
+				<span class="visually-hidden">Loading...</span>
+			</button>
 			{{ form_end(form) }}
-			
 		</div>
-		</section>
-		<section id="new" class="p-4">
-			<div class="row mt-2">
-				{% for article in articles | reverse %}
-					<div class="card-group mb-3 col-4">
-						<div class="card col m-3" style="width: 18rem;">
-							<img src="{{ vich_uploader_asset(article,'imageFile')}}" class="card-img-top" alt="...">
-							<div class="card-body">
-								<div class="text-center">
+	</section>
+	<div class=" row d-flex justify-content-end m-auto">
+		<div class="card border-light mb-3" style="max-width: 18rem;">
+			<h3 class="card-header text-center">
+				CPF & CET
+			</h3>
+			<div class="card-body">
+				<a href="https://www.mon-compte-formation.fr/" title="Conseil webmaster" target="_blank">Mon compte CPF</a>
+			</br>
+			<a href="https://www.service-public.fr/particuliers/vosdroits/F1907" title="Conseil webmaster" target="_blank">Mon compte CET</a>
+		</div>
+	</div>
+</div>
 
-														<h3 class="card-title"> {{ article.title }}</h3>
-														<h5>
-														- Catégorie :
-														{{ article.category.name }}
-														{% if (article.category.name == 'Ofb') %}
-														</h5>
-														<h5>
-															- sous-catégorie:
-															<a href>{{ article.subCategory.name }}</a>
-														</h5>
-													{% elseif (article.category.name== 'Parcs Nationaux') %}
-														<p>
-															sous-catégorie :
-															<a href>{{ article.subCategory.name }}</a>
-														</p>
-													{% endif %}
-												
-											</br>
-											{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</p>
-									<a href="{{ path("article_show", { id: article.id }) }}" >En savoir plus</a>
-								</div>
-		  					</div>
-						</div>
-					</div>
-						{% else %}
-							Aucune article trouvé.
-				{% endfor %}
+
+<section id="new" class="p-4">
+	<div class="row mt-2">
+		{% for article in articles | reverse %}
+
+			<div class="card-group  mb-3 col-4">
+				<div class="card shadow p-3 " style="width: 18rem;">
+					<img src="{{ vich_uploader_asset(article,'imageFile')}}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<div class="text-center">
+							<h2 class="card-title">
+								{{ article.title }}</h2>
+
+							<p class="card-text">
+								- Catégorie :{{ article.category.name }}
+							</p>
+						</br>
+						{% if (article.category.name == 'Ofb') %}
+							<p>
+								- sous-catégorie:
+								<a href>{{ article.subCategory}}</a>
+							</p>
+						{% elseif (article.category.name == 'Parcs Nationaux') %}
+							<p>
+								- sous-catégorie :
+								<a href>{{ article.subCategory}}</a>
+							</p>
+					{% elseif (article.category.name != 'Parcs Nationaux') %}
+						</br>
+					{% endif %}
+				</div>
 			</div>
-		</section>
+		</br>
+		<div class="card-footer">
+			Créé le :
+			{{ article.createdAt ? article.createdAt|date('d-m-y à H:i') : '' }}</p>
+		<a href="{{ path("article_show", { id: article.id }) }}">En savoir plus</a>
 	</div>
 
-	<div class="p-5 text-end">
-	<button type="button" class="my-3 p-1 btn btn-outline-dark text-reset"><a href="#" class="link-dark" > ↑ </a></button>
-	</div>
-{% endblock %}
+
+</div></div>{% else %}Aucun article trouvé.{% endfor %}</div></section></div><div class="p-5 text-end"><button type="button" class="my-3 p-1 btn btn-outline-dark text-reset"><a href="#" class="link-dark">↑</a></button></div>{% endblock %}

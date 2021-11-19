@@ -1,18 +1,20 @@
 @import "~bootstrap/scss/bootstrap";
 
-body {
-    background-color: #EBF5FB ; 
-}
+
 
 a {
     text-decoration: none ;
-    color: green; 
+    color: #332405; 
     
 }
 
+a:hover {
+    color:beige;
+   }
+
     h3, h4, h5 {
     font-family: Arial,Helvetica,sans-serif;
-    color: rgba(100, 79, 52, 0.514);
+    color:#000033;
     line-height: 1.25;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -21,7 +23,7 @@ a {
 
 h6 {
     font-family: Arial,Helvetica,sans-serif;
-    color: #BCAAA4 ;
+    color: #000033 ;
     line-height: 1.25;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -29,8 +31,9 @@ h6 {
 }
 
 p{
-    color:#F5F5F5;
-    font-weight: 700;
+    color:#212121 ;
+    font-family: Arial,Helvetica,sans-serif;
+
 
 
 
@@ -39,26 +42,136 @@ p{
 .nav-link{
     text-decoration: none
     }
-
-    html,body {
-        font-family: 'Raleway', sans-serif;
-        padding: 1em 2em;
-        font-size: 18px;
-        background: #000066;
-        color: #F5F5F5
+    body {
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        background: #051102;
       }
       
-      h1,h2 {
-        font-weight: 200;
-        margin: 0.4em 0;
+      .ml1 {
+        font-weight: 900;
+        font-size: 3.5em;
       }
-      h1 { font-size: 3.5em; }
-      h2 {
-        color: #888;
-        font-size: 2em;
+      
+      .ml1 .letter {
+        display: inline-block;
+        line-height: 1em;
       }
+      
+      .ml1 .text-wrapper {
+        position: relative;
+        display: inline-block;
+        padding-top: 0.1em;
+        padding-right: 0.05em;
+        padding-bottom: 0.15em;
+      }
+      
+      .ml1 .line {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        background-color: #fff;
+        transform-origin: 0 0;
+      }
+      
+      .ml1 .line1 { top: 0; }
+      .ml1 .line2 { bottom: 0; }
+      
+      footer{
 
+        background:#120435;
+;
+        
+        position:absolute;
+        
+        bottom:1;
+        
+        width:100%;
+        
+        padding-top:50px;
+        
+        height:50px;
+        
+        }
+
+        .card-img-top {
+    width: 100%;
+    height: 10vw;
+    object-fit: cover;
+}
+
+.ml6 {
+  position: relative;
+  font-weight: 900;
+  font-size: 3.3em;
+}
+
+.ml6 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml6 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+
+#conceptIMG {
+  background-image: url(https://zupimages.net/up/21/46/pvsg.jpeg) ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: auto;
+  height: 400px;
+  
+
+  }
+
+  #statusIMG {
+    background-image: url(https://zupimages.net/up/21/46/w4f3.jpg) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 400px;
     
+  
+    }
+
+
+    #pnxIMG {
+      background-image: url(https://zupimages.net/up/21/46/j0oc.jpg) ;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: auto;
+      height: 400px;
       
+    
+      }
 
 
+      #ofbIMG {
+        background-image: url(https://zupimages.net/up/21/46/k8mr.jpg) ;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: auto;
+        height: 400px;
+        
+      
+        }
+
+     
+  
+
+
+      
+  
+
+
+  

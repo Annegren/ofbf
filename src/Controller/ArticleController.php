@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\SubCategory;
-use App\Form\SearchArticleType;
+use App\Form\SearchArticleFormType;
 use App\Form\SearchType;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
@@ -25,9 +25,11 @@ class ArticleController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(Request $request, ArticleRepository $articleRepository, ): Response
+    public function index(Request $request, ArticleRepository $articleRepository): Response
     {
-        $form = $this->createForm(SearchArticleType::class);
+
+
+        $form = $this->createForm(SearchArticleFormType::class);
         $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
@@ -41,6 +43,7 @@ class ArticleController extends AbstractController
         'articles' => $articles,
         'form' => $form->createView(),
     ]);
+    
 }
 
 
