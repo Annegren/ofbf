@@ -37,7 +37,7 @@ class DefaultController extends AbstractController
         $formContact->handleRequest($request);
 
         if ($formContact->isSubmitted() && $formContact->isValid()) {
-            $data = $formContact->getData();
+            $data = $formContact->getData()->getName();
         
             $mailerService->send(
                 "hello@dev.fr",
@@ -45,11 +45,12 @@ class DefaultController extends AbstractController
                 "nouveau message",
                 "email/contact.html.twig",
                 [
-                    "name" => $data ['name'],
-                    "description" => $data ['description']
+                    "name" => $data->getName(),
+                    "description" => $data->getDescription()
                 ]
              );
 
+                
                 $messageService->addSuccess('votre email ok');
             }
 

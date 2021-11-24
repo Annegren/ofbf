@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Doctrine\DBAL\Types\DateTimeImmutableType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -27,11 +28,15 @@ class ArticleCrudController extends AbstractCrudController
     }
 
     
+
+    
     public function configureFields(string $pageName): iterable
     {
+        
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('title', 'Titre Article'),
+            TextField::new('title', 'Titre'),
+            TextField::new('imageFile', 'Image')->setFormType(VichFileType::class),
             TextEditorField::new('description')->setFormType(CKEditorType::class)->setLabel('Article description'),
             AssociationField::new('category', 'Catégorie'),
             AssociationField::new('subCategory', 'Sous catégorie'),
@@ -39,8 +44,7 @@ class ArticleCrudController extends AbstractCrudController
             AssociationField::new('ofb', 'resélectionner la sous catégorie OFB'),
             DateTimeField::new('createdAt', 'créé le'),
             DateTimeField::new('updatedAt', 'modifié le'),
-            TextField::new('imageFile', 'Fichier PDF')->setFormType(VichFileType::class),
-            ImageField::new('file', 'image')->setBasePath('uploads/pdf/')->onlyOnIndex(),
+            ImageField::new('file', 'image')->setBasePath('Users/annegreen/Desktop/ofbf/ofbf/uploads/pdf/')->onlyOnIndex(),
             SlugField::new('slug')->setTargetFieldName('title')->hideOnform(),
 
         ];
@@ -48,13 +52,25 @@ class ArticleCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
+        
+        return $crud
+        ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig')
+        ->setDefaultSort(['createdAt' => 'DESC'])
+        ->renderContentMaximized()
+        ->setPaginatorRangeSize(3
+        )
+        ;
 
     }
 
-    function show($text)
-{
-    return htmlspecialchars ($text);
-}
+    public function configureAssets(Assets $assets): Assets
+    {
+            
+        return Assets::new()->addCssFile('css/admin.css');
+
+    }
+
+    
     
 }
+

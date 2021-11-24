@@ -66,7 +66,7 @@
 		</br>
 		<div class="card-footer">
 			Créé le :
-			{{ article.createdAt ? article.createdAt|date('d-m-y à H:i') : '' }}</p>
+			{{ article.createdAt ? article.createdAt|date('d-m-y') : '' }}</p>
 		<a href="{{ path("article_show", { id: article.id }) }}">En savoir plus</a>
 	</div>
 
