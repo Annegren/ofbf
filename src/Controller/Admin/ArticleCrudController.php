@@ -36,7 +36,7 @@ class ArticleCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('title', 'Titre'),
-            TextField::new('imageFile', 'Image')->setFormType(VichFileType::class),
+            TextField::new('imageFile', 'Image')->setFormType(VichFileType::class)->hideOnIndex(),
             TextEditorField::new('description')->setFormType(CKEditorType::class)->setLabel('Article description'),
             AssociationField::new('category', 'Catégorie'),
             AssociationField::new('subCategory', 'Sous catégorie'),

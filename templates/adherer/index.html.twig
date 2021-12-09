@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comment adhérer ?
+{% endblock %}
+
+{% block body %}
+	<div class="text-center mt-5 mb-5" style="color:#fff">
+		<h1>
+			Comment adhérer ?
+		</h1>
+	</div></br>
+
+
+
+<div class="d-lg-flex justify-content-around">
+		<div class="card border-light col-lg-3">
+			<h3 class="card-header text-center" style="color:#000033">
+				Liens utiles
+			</h3>
+			<div class="card-body">
+				<li>
+					<a href="http://www.affmar-fo.fr/" target="_blank" title="Conseil webmaster" list-style-type: "disc" ; target="_blank">Pour les TSDD spécialité navigation maritime</a>
+				</li>
+			</br>
+			<li>
+				<a href="http://www.snp2e-fo.syndicat.min-e2.fr/" target="_blank" title="Conseil webmaster" target="_blank">
+					Pour les TSDD autres spécialités</a>
+			</li>
+		</br>
+		<li>
+			<a href="https://www.snitpect.fr/" target="_blank" title="Conseil webmaster" target="_blank">Pour les ITPE</a>
+		</li>
+	</br>
+	<li>
+		<a href="https://sniae.fr/" target="_blank" title="Conseil webmaster" target="_blank">Pour les IAE</a>
+	</li>
+</div></div>
+
+			<div class="flex-fill">
+            {% for permanentArticles in permanentArticle %}
+                {% if (permanentArticles.name == 'Adherer') %}
+                    <img src="{{ vich_uploader_asset(permanentArticles,'imageFile')}}" class="img-fluid" alt=" ...">
+                {% endif %}
+            {% endfor %}
+			</div>
+			</div>
+
+    <div class="p-5 text-end">      
+        <button type="button" class="my-3 p-1 btn btn-outline-light text-reset">
+	        <a href="#" class="link-blue">↑</a>
+        </button>
+    </div>
+</div>
+
+{% endblock %}

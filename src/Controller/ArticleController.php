@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\PermanentArticle;
 use App\Entity\SubCategory;
 use App\Form\SearchArticleFormType;
 use App\Form\SearchType;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\PermanentArticleRepository;
 use App\Repository\SubCategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,9 +27,11 @@ class ArticleController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(Request $request, ArticleRepository $articleRepository): Response
+    public function index(Request $request, ArticleRepository $articleRepository, PermanentArticleRepository $permanentArticleRepository): Response
     {
-
+        $permanentArticleRepository = $this->getDoctrine()
+        ->getRepository(PermanentArticle::class)
+        ->findAll();
 
         $form = $this->createForm(SearchArticleFormType::class);
         $form->handleRequest($request);
@@ -42,6 +46,8 @@ class ArticleController extends AbstractController
     return $this->render('article/index.html.twig', [
         'articles' => $articles,
         'form' => $form->createView(),
+        'permanentArticles' => $permanentArticleRepository
+
     ]);
     
 }
@@ -56,10 +62,9 @@ class ArticleController extends AbstractController
 
         $categories = $article->getCategory();
 
-
         return $this->render('article/show.html.twig', [
             'article' => $article,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 

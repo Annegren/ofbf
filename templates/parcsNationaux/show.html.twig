@@ -12,24 +12,22 @@
 			{{ articles.0.parcsnationaux.name }}
 			</h1>
 		</div>
-
-
 		<section id="new" class="p-4">
-			<div class="row mt-2">
+	<div class="d-lg-flex flex-wrap mt-2">
 				{% for article in articles | reverse %}
-					<div class="card-group mb-3 col-4">
+			<div class="card-group mb-3 col-lg-4 px-lg-2">
 						<div class="card shadow p-3 col m-3" style="width: 18rem;">
 						<img src="{{ vich_uploader_asset(article,'imageFile')}}" class="card-img-top" alt="...">
 							<div class="card-body">
 								<div class="text-center">
 									<h3 class="card-title">
 										{{ article.title }}</h3>
-									
-										- sous catégorie :
-										{{ article.parcsNationaux.name }}</p>
-									<p>
-										- catégorie :
-										{{ article.category.name }}</p>
+									<li class="card-text" style="color:#111a94">
+										sous catégorie :
+										{{ article.parcsNationaux.name }}</li></br>
+								    <li class="card-text" style="color:#111a94">
+										catégorie :
+										{{ article.category.name }}</li></br>
 									
 									<div class="card-footer">
 									<a href="{{path("article_show", { id: article.id }) }}">
@@ -47,7 +45,7 @@
 		</div>
 	</section>
 <div class="p-5 text-end">
-	<button type="button" class="my-3 p-1 btn btn-outline-dark text-reset"><a href="#" class="link-dark" > ↑ </a></button>
+	<button type="button" class="my-3 p-1 btn btn-outline-light text-reset"><a href="#" class="link-blue" > ↑ </a></button>
 </div>
 
 {% endblock %}

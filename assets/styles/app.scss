@@ -4,12 +4,12 @@
 
 a {
     text-decoration: none ;
-    color: #332405; 
+    color: #111a94; 
     
 }
 
 a:hover {
-    color:beige;
+    color:rgb(8, 8, 7);
    }
 
     h3, h4, h5 {
@@ -31,11 +31,16 @@ h6 {
 }
 
 p{
-    color:#212121 ;
+    color:#ddd8b0 ;
     font-family: Arial,Helvetica,sans-serif;
 
 
 
+
+}
+
+nav{
+  background: #fff ;
 
 }
 
@@ -46,7 +51,7 @@ p{
         height: 100vh;
         padding: 0;
         margin: 0;
-        background: #051102;
+        background: #3296f3;
       }
       
       .ml1 {
@@ -82,7 +87,7 @@ p{
       
       footer{
 
-        background:#120435;
+        background:#3296f3;
 ;
         
         position:absolute;
@@ -135,7 +140,7 @@ p{
   }
 
   #statusIMG {
-    background-image: url(https://zupimages.net/up/21/46/w4f3.jpg) ;
+    background-image: url(https://zupimages.net/up/21/48/ilxf.jpg) ;
     background-size: cover;
     background-repeat: no-repeat;
     width: auto;
@@ -146,7 +151,7 @@ p{
 
 
     #pnxIMG {
-      background-image: url(https://zupimages.net/up/21/46/j0oc.jpg) ;
+      background-image: url(https://zupimages.net/up/21/48/03o7.jpg) ;
       background-size: cover;
       background-repeat: no-repeat;
       width: auto;
@@ -157,7 +162,7 @@ p{
 
 
       #ofbIMG {
-        background-image: url(https://zupimages.net/up/21/46/k8mr.jpg) ;
+        background-image: url(https://zupimages.net/up/21/48/mfde.jpg) ;
         background-size: cover;
         background-repeat: no-repeat;
         width: auto;
@@ -165,6 +170,17 @@ p{
         
       
         }
+
+      #titrepage {
+        color:#fff; 
+      }
+
+      .ml3 {
+        font-weight: 900;
+        font-size: 3.5em;
+      }
+
+
 
      
   

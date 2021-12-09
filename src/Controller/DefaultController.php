@@ -2,24 +2,33 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Form\ContactType;
+use App\Repository\ArticleRepository;
 use App\Services\MessageService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Services\MailerService;
-
+use Doctrine\ORM\Mapping\Id;
 
 class DefaultController extends AbstractController
 {
     /**
      * @Route("/", name="app_index")
      */
-    public function index(): Response
+    public function index(ArticleRepository $articles): Response
     {
+       
+        $articles = $this->getDoctrine()
+        ->getRepository(Article::class)
+        ->findAll();
+        
         return $this->render('default/index.html.twig', [
            'website' => 'OFB',
+           'articles' => $articles
+
         ]);
     }
 
@@ -59,4 +68,6 @@ class DefaultController extends AbstractController
         ]);
     
     }
+
+    
 }  
