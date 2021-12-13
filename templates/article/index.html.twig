@@ -57,20 +57,20 @@
 					<img src="{{ vich_uploader_asset(article,'imageFile')}}" class="card-img-top" alt="...">
 					<div class="card-body">
 						<div class="text-center">
-							<h2 class="card-title mb-5" style="color:#5D4037">
+							<h2 class="card-title mb-5" style="color:#5E9064">
 								{{ article.title }}</h2>
 
-							<li class="card-text" style="color:#111a94">
+							<li class="card-text" style="color:#424DAB">
 								Catégorie :{{ article.category.name }}
 							</li>
 						</br>
 						{% if (article.category.name == 'Ofb') %}
-							<li class="card-text" style="color:#111a94">
+							<li class="card-text" style="color:#424DAB">
 								Sous-catégorie:
 							     {{ article.subCategory}}
 							</li>
 						{% elseif (article.category.name == 'Parcs Nationaux') %}
-							<li class="card-text" style="color:#111a94">
+							<li class="card-text" style="color:#424DAB">
 								Sous-catégorie : 
 								{{ article.subCategory}}
 							</li>
@@ -80,10 +80,10 @@
 				</div>
 			</div>
 		</br>
-		<div class="card-footer">
+		<div class="card-footer" style="color:#5E9064">
 			Créé le :
 			{{ article.createdAt ? article.createdAt|date('d-m-y') : '' }}</p>
-		<a href="{{ path("article_show", { id: article.id }) }}">En savoir plus</a>
+		<a href="{{ path("article_show", { id: article.id }) }}" style="color:#424DAB">En savoir plus</a>
 	</div>
 </div>
 </div>
@@ -97,12 +97,13 @@
 				Consulter : 
 			</h2>
 			<button type="button" class="my-3 p-1 btn btn-outline-light">
-				<a href="https://www.mon-compte-formation.fr/"  class="d-block me-2" target="_blank" title="Conseil webmaster" target="_blank">Mon compte CPF</a></button>
+				<a href="https://www.mon-compte-formation.fr/"  class="d-block me-2" style="color:#424DAB" target="_blank" title="Conseil webmaster" target="_blank">Mon compte CPF</a></button>
 			<button type="button" class="my-3 p-1 btn btn-outline-light">
-			    <a href="https://www.service-public.fr/particuliers/vosdroits/F1907" class="d-block me-2"  target="_blank" title="Conseil webmaster" target="_blank">Mon compte CET</a></button>
+			    <a href="https://www.service-public.fr/particuliers/vosdroits/F1907" class="d-block me-2"  style="color:#424DAB" target="_blank" title="Conseil webmaster" target="_blank">Mon compte CET</a></button>
 </div>
 <div class="p-5 text-end"><button type="button" class="my-3 p-1 btn btn-outline-light text-reset"><a href="#" class="link-blue">↑</a></button>
 </div>
+
 
 
 {% endblock %}

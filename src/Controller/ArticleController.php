@@ -32,7 +32,7 @@ class ArticleController extends AbstractController
         $permanentArticleRepository = $this->getDoctrine()
         ->getRepository(PermanentArticle::class)
         ->findAll();
-
+    
         $form = $this->createForm(SearchArticleFormType::class);
         $form->handleRequest($request);
 

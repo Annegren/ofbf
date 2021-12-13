@@ -4,19 +4,15 @@
 {% endblock %}
 
 {% block body %}
-	<div class="text-center mt-5 mb-5" style="color:#fff">
-		<h1>
-			Comment adhérer ?
-		</h1>
-	</div></br>
-
-
-
-<div class="d-lg-flex justify-content-around">
+<section id="coloradherer">
+	<div id="adherer2" ></br>
+		<h1 class="text-end p-5">
+		</div>
+<div class="d-lg-flex justify-content-around mt-5">
 		<div class="card border-light col-lg-3">
-			<h3 class="card-header text-center" style="color:#000033">
+			<h5 class=" text-center" style="color:#000033">
 				Liens utiles
-			</h3>
+			</h5>
 			<div class="card-body">
 				<li>
 					<a href="http://www.affmar-fo.fr/" target="_blank" title="Conseil webmaster" list-style-type: "disc" ; target="_blank">Pour les TSDD spécialité navigation maritime</a>
@@ -34,7 +30,20 @@
 	<li>
 		<a href="https://sniae.fr/" target="_blank" title="Conseil webmaster" target="_blank">Pour les IAE</a>
 	</li>
-</div></div>
+</div>
+</div>
+
+	<div class="card border-light col-lg-3">
+	    <h5 class="card-title text-center">adhésion</h5>
+
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted text-center">Téléchargez le document à remplir</h6>
+<div class="text-center">
+<a href="https://www.fichier-doc.fr/2021/12/13/adhesion/" target="_blank"> ici </a></div>
+<div class="text-center mt-3">
+<a class="btn btn-outline-danger" href="mailto:ga.annegren@gmail.com" role="button"> Si paiement par cb envoyez ici : <img src="https://img.icons8.com/fluency/48/000000/apple-mail.png"/></a></div>
+  </div>
+</div>
 
 			<div class="flex-fill">
             {% for permanentArticles in permanentArticle %}
@@ -51,5 +60,6 @@
         </button>
     </div>
 </div>
+</section>
 
 {% endblock %}

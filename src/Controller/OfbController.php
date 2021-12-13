@@ -24,6 +24,8 @@ class OfbController extends AbstractController
             ->getRepository(Ofb::class)
             ->findAll();
 
+            
+
         return $this->render('ofb/index.html.twig', [
             'ofbs' => $ofbs,
         ]);

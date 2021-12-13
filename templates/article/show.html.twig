@@ -1,48 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article {{ article.title }}
+{% block title %}Article
+	{{ article.title }}
 {% endblock %}
 
 {% block body %}
 	<div class="d-lg-flex flex-wrap justify-content-center mt-5">
-	<div class="card-group mb-3 col-lg-4 px-lg-2">
+		<div class="card-group mb-3 col-lg-4 px-lg-2">
 
-<div class="card shadow p-3 mb-5 bg-white rounded"style="width: 30rem;">
-<img src="{{ vich_uploader_asset(article,'imageFile')}}" class="img-fluid" alt="...">
-  <div class="card-body">
-    <h2 class="card-title">{{  article.title }}</h2>
-			<div class="card-text" >{{ article.description|raw}}</div>
-			<p class="card-text" style="color:#111a94">Catégorie :
-				<a href>{{ article.category.name }}</a></p>
+			<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
+				<img src="{{ vich_uploader_asset(article,'imageFile')}}" class="img-fluid" alt="...">
+				<div class="card-body">
+					<h2 class="card-title " style="color:#5E9064">{{  article.title }}</h2>
+					<div class="card-text ">{{ article.description|raw}}</div>
+					<p class="card-text" style="color:#424DAB">Catégorie :
+						{{ article.category.name }}</p>
 
-            {% if (article.category.name == 'Ofb') %}
-           <p class="card-text" style="color:#111a94"> sous-catégorie:
-			<a href>{{ article.subCategory.name }}</a></p>
-           {% elseif (article.category.name== 'Parcs Nationaux') %}
-           <p class="card-text" style="color:#111a94"> sous-catégorie :
-			<a href>{{ article.subCategory.name }}</a></p>
-			{% endif %}
-			</br>
-			<div class="card-footer">
-			<form>
-			 <input id="impression" name="impression" type="button"  class="btn btn-dark" onclick="imprimer_page()" value="Imprimer" />
-			</form>	
+					{% if (article.category.name == 'Ofb') %}
+						<p class="card-text" style="color:#424DAB">
+							sous-catégorie:
+							{{ article.subCategory.name }}</p>
+					{% elseif (article.category.name== 'Parcs Nationaux') %}
+						<p class="card-text" style="color:#424DAB">
+							sous-catégorie :
+							{{ article.subCategory.name }}</p>
+					{% endif %}
+				</br>
+				<div class="card-footer" style="color:#5E9064">
+					Créé le :
+					{{ article.createdAt ? article.createdAt|date('d-m-y') : '' }}</p>
+				<form>
+					<input id="impression" name="impression" type="button" class="btn btn-dark" onclick="imprimer_page()" value="Imprimer"/>
+				</form>
 			</br>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-			<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="OFBiodiversite">Tweet</a>
+				<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="OFBiodiversite">Tweet</a>
 			</div>
-			</div>
+		</div>
 	</div>
-	</div>
-	</div>
-	</div>
-	<div class="p-5 text-end">
-	<button type="button" class="btn btn-light"><a href="{{ path('article_index') }}"> Revenir aux articles </a></button>
-	</div>
-	<script type="text/javascript">
-		function imprimer_page(){
-  		window.print(); }
-	</script>
-	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-
-{% endblock %}
+</div></div></div><div class="p-5 text-end"><button type="button" class="btn btn-light">
+<a href="{{ path('article_index') }}">
+	Revenir aux articles
+</a></button></div><script type="text/javascript">function imprimer_page() {
+window.print();
+}</script><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>{% endblock %}

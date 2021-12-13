@@ -20,17 +20,17 @@
 						<img src="{{ vich_uploader_asset(article,'imageFile')}}" class="card-img-top" alt="...">
 							<div class="card-body">
 								<div class="text-center">
-									<h3 class="card-title">
+									<h3 class="card-title" style="color:#5E9064">
 										{{ article.title }}</h3>
-									<li class="card-text" style="color:#111a94">
+									<li class="card-text" style="color:#424DAB">
 										sous catégorie :
 										{{ article.parcsNationaux.name }}</li></br>
-								    <li class="card-text" style="color:#111a94">
+								    <li class="card-text" style="color:#424DAB">
 										catégorie :
 										{{ article.category.name }}</li></br>
 									
 									<div class="card-footer">
-									<a href="{{path("article_show", { id: article.id }) }}">
+									<a href="{{path("article_show", { id: article.id }) }}"style="color:#424DAB">
 										En savoir plus
 									</div>
 									</a>

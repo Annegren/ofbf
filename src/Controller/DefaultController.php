@@ -18,16 +18,12 @@ class DefaultController extends AbstractController
     /**
      * @Route("/", name="app_index")
      */
-    public function index(ArticleRepository $articles): Response
+    public function index(ArticleRepository $articles, ): Response
     {
        
-        $articles = $this->getDoctrine()
-        ->getRepository(Article::class)
-        ->findAll();
-        
+       
         return $this->render('default/index.html.twig', [
            'website' => 'OFB',
-           'articles' => $articles
 
         ]);
     }

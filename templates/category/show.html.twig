@@ -16,18 +16,21 @@
 			</h1>
 		</div>
 				{% if (categories == 'ATE TE') %}
-					<div class="text-end">
+					<div class="text-end"style="color:#fff">
+					Une question ? ➪
 					<a class="btn btn-outline-primary" href="mailto:gsnape-fo@ofb.gouv.fr" role="button"> <img src="https://img.icons8.com/fluency/48/000000/apple-mail.png"/></a>
 					</div>
 				
 				{% endif %}
 				{% if (categories == 'ITPE') %}
-				<div class="text-end">
+				<div class="text-end"style="color:#fff">
+					Une question ? ➪				
 					<a class="btn btn-outline-primary" href="mailto:snitpect-fo@ofb.gouv.fr " role="button"> <img src="https://img.icons8.com/fluency/48/000000/apple-mail.png"/></a>
 				</div>
 				
 				{% elseif (categories != 'ATE TE') %}
-				<div class="text-end">
+				<div class="text-end"style="color:#fff">
+					Une question ? ➪							
 					<a class="btn btn-outline-primary" href="mailto:o@ofb.gouv.fr "role="button"> <img src="https://img.icons8.com/fluency/48/000000/apple-mail.png"/></a>
 				</div>
 				</div>
@@ -41,15 +44,15 @@
 							<img src="{{ vich_uploader_asset(article,'imageFile')}}" class="card-img-top" alt="...">
 							<div class="card-body">
 								<div class="text-center">
-									<h3 class="card-title">
+									<h3 class="card-title" style="color:#5E9064">
 										{{ article.title }}</h3>
-								<li class="card-text" style="color:#111a94">
+								<li class="card-text" style="color:#424DAB">
 										catégorie :
 										{{ article.category.name }}
 									</li>
 								</br>
 								<div class="card-footer">
-									<a href="{{path("article_show", { id: article.id }) }}">
+									<a href="{{path("article_show", { id: article.id }) }}" style="color:#424DAB">
 										En savoir plus
 									</div>
 								</a>

@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use Swift_Attachment;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -17,7 +18,6 @@ class ContactType extends AbstractType
             ->add('nom')
             ->add('email', EmailType::class)
             ->add('message', TextareaType::class)
-            ->add('envoyer', SubmitType::class)
         ;
     }
 

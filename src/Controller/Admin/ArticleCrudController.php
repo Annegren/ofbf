@@ -37,15 +37,14 @@ class ArticleCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('title', 'Titre'),
             TextField::new('imageFile', 'Image')->setFormType(VichFileType::class)->hideOnIndex(),
-            TextEditorField::new('description')->setFormType(CKEditorType::class)->setLabel('Article description'),
+            TextEditorField::new('description')->setFormType(CKEditorType::class)->setLabel(' Déscription'),
             AssociationField::new('category', 'Catégorie'),
-            AssociationField::new('subCategory', 'Sous catégorie'),
-            AssociationField::new('parcsNationaux', 'resélectionner la sous catégorie Parcs Nationaux'),
-            AssociationField::new('ofb', 'resélectionner la sous catégorie OFB'),
-            DateTimeField::new('createdAt', 'créé le'),
-            DateTimeField::new('updatedAt', 'modifié le'),
-            ImageField::new('file', 'image')->setBasePath('Users/annegreen/Desktop/ofbf/ofbf/uploads/pdf/')->onlyOnIndex(),
-            SlugField::new('slug')->setTargetFieldName('title')->hideOnform(),
+            AssociationField::new('parcsNationaux', 'PNX: Sous catégorie'),
+            AssociationField::new('ofb', 'OFB: Sous catégorie'),
+            DateTimeField::new('createdAt', 'Créé le'),
+            DateTimeField::new('updatedAt', 'Modifié le'),
+            ImageField::new('file', 'Image')->setBasePath('Users/annegreen/Desktop/ofbf/ofbf/uploads/pdf/')->onlyOnIndex(),
+            SlugField::new('slug')->setTargetFieldName('title')->hideOnform()->hideOnIndex()
 
         ];
     }

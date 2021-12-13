@@ -96,7 +96,6 @@ nav{
         
         width:100%;
         
-        padding-top:50px;
         
         height:50px;
         
@@ -138,16 +137,16 @@ nav{
   
 
   }
-
+  @media only screen and (min-device-width: 641px), screen and (min-width: 641px) {
   #statusIMG {
     background-image: url(https://zupimages.net/up/21/48/ilxf.jpg) ;
     background-size: cover;
     background-repeat: no-repeat;
     width: auto;
     height: 400px;
-    
-  
+
     }
+  }
 
 
     #pnxIMG {
@@ -170,6 +169,20 @@ nav{
         
       
         }
+
+        #adherer2 {
+          background-image: url(https://zupimages.net/up/21/49/f0at.jpg) ;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: auto;
+          height: 400px;
+          
+        
+          }
+
+          #coloradherer{
+            background-color: #fff;
+          }
 
       #titrepage {
         color:#fff; 

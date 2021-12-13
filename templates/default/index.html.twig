@@ -13,25 +13,26 @@
 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button></div><div class="carousel-inner">
 <div class="carousel-item active">
-	<img src="{{ asset('build/images/manif1.png') }}" class="d-block w-100" height='400px' alt="logo">
+	<img src="{{ asset('build/images/manif1.png') |imagine_filter('my_fixed_filter') }}" class="d-block w-100"  alt="logo">
 </div>
 <div class="carousel-item">
-	<img src="{{ asset('build/images/logo2.png') }}" class="d-block w-100" height='400px' alt="logo">
+	<img src="{{ asset('build/images/manif2.png') |imagine_filter('my_fixed_filter')}}" class="d-block w-100 "  alt="logo">
 </div>
 <div class="carousel-item">
-	<img src="{{ asset('build/images/logo4.png') }}" class="d-block w-100" height='400px' alt="logo">
+	<img src="{{ asset('build/images/manif3.png')  |imagine_filter('my_fixed_filter') }}" class="d-block w-100"  alt="logo">
 </div></div><button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 <span class="visually-hidden">Previous</span></button><button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
 <span class="carousel-control-next-icon" aria-hidden="true"></span>
 <span class="visually-hidden">Next</span></button></div>
 
+
+{# afichage 3 derniers articles
 {% for article in articles |sort  %} 
 <div class="container">
 {{article.title}}
 </div>
-
-{% endfor %}
+{% endfor %} #}
 
 
 

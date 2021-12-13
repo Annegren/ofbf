@@ -37,9 +37,8 @@ class PermanentArticleCrudController extends AbstractCrudController
         
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('name', 'name'),
-            UrlField::new('chemin', 'chemin'),
-            ImageField::new('file', 'image')->setBasePath('Users/annegreen/Desktop/ofbf/ofbf/uploads/pdf/')->onlyOnIndex(),
+            TextField::new('name', 'Titre'),
+            ImageField::new('file', 'Image')->setBasePath('Users/annegreen/Desktop/ofbf/ofbf/uploads/pdf/')->onlyOnIndex(),
             TextField::new('imageFile', 'Image')->setFormType(VichFileType::class)->hideOnIndex()
 
 
