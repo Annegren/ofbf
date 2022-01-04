@@ -7,16 +7,15 @@ fos_ck_editor:
       styleSet: 'custom_style'
       toolbar:
         - { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] }
-        - { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] }
+        - { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] }
         - '/'
-        - { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] }
+        - { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'CopyFormatting', 'RemoveFormat' ] }
         - { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] }
-        - { name: 'insert', items: [ 'Pdf','Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] }
+        - { name: 'insert', items: [ 'Pdf','Table', 'HorizontalRule', 'Smiley', 'SpecialChar'] }
         - { name: 'colors', items: [ 'TextColor', 'BGColor' ] }
         - '/'
-        - { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] }
-        - { name: 'editing', items: [ 'Find', 'Replace', '-', 'Scayt' ] }
-        - { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] }
-        - { name: 'document', items: [ '-', 'Save', 'ExportPdf', 'Preview', '-', 'Source' ] }
+        - { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo' ] }
+        - { name: 'tools', items: [ 'Maximize' ] }
+        - { name: 'document', items: [ '-', 'Save', 'ExportPdf', 'Preview', '-'] }
       filebrowserBrowseRoute: elfinder
       filebrowserBrowseRouteParameters: []

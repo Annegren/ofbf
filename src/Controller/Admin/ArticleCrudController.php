@@ -27,12 +27,12 @@ class ArticleCrudController extends AbstractCrudController
         return Article::class;
     }
 
-    
 
-    
+
+
     public function configureFields(string $pageName): iterable
     {
-        
+
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('title', 'Titre'),
@@ -51,25 +51,19 @@ class ArticleCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        
-        return $crud
-        ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig')
-        ->setDefaultSort(['createdAt' => 'DESC'])
-        ->renderContentMaximized()
-        ->setPaginatorRangeSize(3
-        )
-        ;
 
+        return $crud
+            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig')
+            ->setDefaultSort(['createdAt' => 'DESC'])
+            ->renderContentMaximized()
+            ->setPaginatorRangeSize(
+                3
+            );
     }
 
     public function configureAssets(Assets $assets): Assets
     {
-            
+
         return Assets::new()->addCssFile('css/admin.css');
-
     }
-
-    
-    
 }
-
